@@ -1,125 +1,75 @@
-📘 AetherLang v1.1 — Complete Guide & Reference
+📘 AetherLang v1.2 — Complete Guide & Reference
 ───────────────────────────────────────────────
 Built on Python. Replaced Python. Fully Yours.
 
 ══════════════════════════════
 🧱 BASIC STRUCTURE
 ══════════════════════════════
-- Statements run line-by-line.
-- Blocks (like repeat/if) must be followed by a colon (:) and ended with an empty line.
-- Indentation is not required, just group blocks using indentation for readability.
+• Statements run top to bottom.
+• Blocks (like repeat/if) must be followed by ":" and separated by empty lines.
+• Strings must use "quotes".
 
 ══════════════════════════════
 📤 OUTPUT & INPUT
 ══════════════════════════════
-• text("Hello")                 → Output text or variable content.
-• input("Prompt?")             → Asks user for input and stores it in `_input`.
-• int("5")                     → Converts string/number to integer.
-• boo("true")                  → Converts string to boolean (true/false).
+• text("Hello")        → Output
+• input("Your name?")  → Stores in _input
+• int("123")           → Integer
+• boo("true")          → Boolean
 
 ══════════════════════════════
 🪄 VARIABLES
 ══════════════════════════════
-• name = "Adam"                → Assigns a string.
-• age = int("20")              → Converts and assigns an integer.
-• isCool = boo("true")         → Boolean assignment.
-• x = random(1, 5)             → Random integer between 1 and 5.
-• y = randomDecimal(0.1, 1.0)  → Random decimal between 0.1 and 1.0.
-• equation = solve("3+5*2")    → Evaluate an equation as math.
-
-Note: All variables are global and override previous values.
+• name = "Adam"
+• age = int("25")
+• x = random(1, 5)
+• y = randomDecimal(0.5, 1.5)
+• math = solve("3+5")
 
 ══════════════════════════════
-🔁 REPEAT LOOPS
+🔁 LOOPS & CONDITIONS
 ══════════════════════════════
-• repeat 5:
+repeat 3:
     text("Hi")
 
-• repeat 3.6:
-    text("Rounds up to 4")
-
-• repeat 2.5s:
-    text("Repeats this block for 2.5 seconds")
-
-Notes:
-- `repeat N:` → Executes N times (rounded up if decimal)
-- `repeat Ns:` → Executes repeatedly for N seconds (real-time)
-
-══════════════════════════════
-🔀 CONDITIONALS
-══════════════════════════════
-• if _input == "yes":
-    text("Yes!")
-• other:
-    text("No match")
-• otherwise:
-    text("Fallback if all fails")
-
-Rules:
-- `if` requires condition ending in `:`
-- `other:` acts like Python's `else`
-- `otherwise:` can follow `other:` as a second fallback
-
-══════════════════════════════
-🧮 MATH FUNCTIONS
-══════════════════════════════
-• round(3.7)         → 4
-• abs(-10)           → 10
-• pow(2, 3)          → 8
-• sqrt(16)           → 4.0
-• floor(4.9)         → 4
-• ceil(4.1)          → 5
-• sin(pi), cos(pi), tan(pi)
-• log(10), log10(100)
-• pi, e              → Constants
-
-══════════════════════════════
-🎲 RANDOM FUNCTIONS
-══════════════════════════════
-• random(1, 10)            → Random integer
-• randomDecimal(0.1, 5.0)  → Random float
-
-══════════════════════════════
-📚 SPECIAL FUNCTIONS
-══════════════════════════════
-• solve("3 + 5")           → Math evaluation
-• simplify("2 + 2")        → Alias for solve (expandable in future)
-
-══════════════════════════════
-📛 RESTRICTED SYNTAX
-══════════════════════════════
-• No function definitions yet
-• No custom classes/objects
-• No imports by user
-• Variables cannot be deleted (yet)
-• No nested ifs or loops (yet)
-• Variables are case-sensitive
-• Strings must use quotes: "text" or 'text'
-
-══════════════════════════════
-🛑 ERROR HANDLING
-══════════════════════════════
-• Invalid commands return: [Unknown command] → ...
-• Errors in math show: [Error in expression: ...]
-
-══════════════════════════════
-🧪 EXAMPLE
-══════════════════════════════
-name = "Adam"
-repeat 3.2:
-    text(name)
-
-if name == "Adam":
-    text("That's you!")
+if _input == "yes":
+    text("Welcome")
 other:
-    text("Not you")
+    text("Goodbye")
+otherwise:
+    text("Try again")
 
 ══════════════════════════════
-🏁 EXIT COMMANDS
+🧮 MATH
 ══════════════════════════════
-• Type `exit` or `quit` to leave the REPL
+• solve("3 + 5")      → 8
+• sqrt(16), round(4.5)
+• pi, e, sin(pi), abs(-1)
 
 ══════════════════════════════
-👑 FINAL THOUGHTS
+💾 STORAGE
 ══════════════════════════════
-AetherLang is designed for beginner coders. Simple syntax, readable logic, and fun to use.
+• store("username", "Adam")
+• recall("username")       → Adam
+
+- Stored in 'aether_storage.json'
+- Survives restarts
+
+══════════════════════════════
+🛑 LIMITATIONS
+══════════════════════════════
+• No nested if/loops (yet)
+• No function definitions
+• All variables are global
+• Quotes required for strings
+
+══════════════════════════════
+🏁 VERSION HISTORY
+══════════════════════════════
+v1.0 → REPL, repeat, if/other  
+v1.1 → Math, decimals, solve(), randomDecimal()  
+v1.2 → store(), recall(), persistent storage  
+══════════════════════════════
+FINAL THOUGHTS
+══════════════════════════════
+Local storage saving with Python is a huge time saver for devs tired of using JavaScript for "localStorage()".
