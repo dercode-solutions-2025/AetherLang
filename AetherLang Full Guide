@@ -1,75 +1,186 @@
-📘 AetherLang v1.2 — Complete Guide & Reference
-───────────────────────────────────────────────
-Built on Python. Replaced Python. Fully Yours.
 
-══════════════════════════════
-🧱 BASIC STRUCTURE
-══════════════════════════════
-• Statements run top to bottom.
-• Blocks (like repeat/if) must be followed by ":" and separated by empty lines.
-• Strings must use "quotes".
+AetherLang v2.0 Guide
+Welcome to AetherLang v2.0!
+AetherLang (AL) is a simple, beginner-friendly interpreted programming language built on Python, designed to prioritize clarity, ease of use, and expressiveness. This guide will walk you through the syntax, features, and usage, so you can write AL code confidently.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+CONTENTS
+_________________________________________
+Basic Syntax & Commands
 
-══════════════════════════════
-📤 OUTPUT & INPUT
-══════════════════════════════
-• text("Hello")        → Output
-• input("Your name?")  → Stores in _input
-• int("123")           → Integer
-• boo("true")          → Boolean
+Variables and Expressions
 
-══════════════════════════════
-🪄 VARIABLES
-══════════════════════════════
-• name = "Adam"
-• age = int("25")
-• x = random(1, 5)
-• y = randomDecimal(0.5, 1.5)
-• math = solve("3+5")
+Control Flow: Loops and Conditionals
 
-══════════════════════════════
-🔁 LOOPS & CONDITIONS
-══════════════════════════════
+Groups and Modular Blocks
+
+Built-in Functions
+
+Persistent Storage with store and recall
+
+Input and Interaction
+
+Advanced Expression Evaluation
+
+Writing and Running AL Code
+
+Version History and Credits
+
+Basic Syntax & Commands
+Statements end with newline (no semicolons).
+
+Indentation matters for code blocks (exact spaces not required, but be consistent).
+
+Comments start with # and run till end of line.
+
+String literals must be wrapped in double or single quotes: "Hello" or 'World'.
+_________________________________
+Printing text
+_________________________________
+text("Hello World!")
+Prints the string to the console.
+
+Variables and Expressions
+Assign variables with =:
+
+_________________________________________
+x = 10
+name = "Adam"
+pi_approx = 3.14
+You can assign the result of expressions:
+__________________________________________
+radius = 5
+area = pi * radius * radius
+Variables can hold numbers, strings, booleans, or special types like images or keys.
+
+Control Flow: Loops and Conditionals
+Repeat loop (fixed count)
+_________________________________
 repeat 3:
-    text("Hi")
+    text("This runs 3 times!")
+Repeat loop (duration in seconds)
+_______________________________________
+repeat for 5s:
+    text("This repeats for 5 seconds!")
+If conditions
+___________________________________________________________________________________________________________
+if x > 5:
+    text("x is greater than 5")
 
-if _input == "yes":
-    text("Welcome")
-other:
-    text("Goodbye")
-otherwise:
-    text("Try again")
+if forward is True:
+    text("Moving forward")
+Conditions support basic expressions and special boolean checks like variable is True or variable is False.
 
-══════════════════════════════
-🧮 MATH
-══════════════════════════════
-• solve("3 + 5")      → 8
-• sqrt(16), round(4.5)
-• pi, e, sin(pi), abs(-1)
+Groups and Modular Blocks
+You can group related commands into named blocks for clarity or reuse:
+______________________________________________________________________________________________________________
+group movementsystem:
+    forward = key('w')
+    backward = key('s')
+    left = key('a')
+    right = key('d')
+__________________________________________________________________________________________
+Groups store the block code for potential reuse or reference (feature expandable in future).
+__________________________________________________________________________________________
+Built-in Functions
+text("string"): Print text.
 
-══════════════════════════════
-💾 STORAGE
-══════════════════════════════
-• store("username", "Adam")
-• recall("username")       → Adam
+image("path"): Load or represent an image (placeholder).
 
-- Stored in 'aether_storage.json'
-- Survives restarts
+key("keyname"): Return True/False for a key press (simulated).
 
-══════════════════════════════
-🛑 LIMITATIONS
-══════════════════════════════
-• No nested if/loops (yet)
-• No function definitions
-• All variables are global
-• Quotes required for strings
+change.position.board("10n"): Move an object 10 units north/south/east/west.
 
-══════════════════════════════
-🏁 VERSION HISTORY
-══════════════════════════════
-v1.0 → REPL, repeat, if/other  
-v1.1 → Math, decimals, solve(), randomDecimal()  
-v1.2 → store(), recall(), persistent storage  
-══════════════════════════════
-FINAL THOUGHTS
-══════════════════════════════
-Local storage saving with Python is a huge time saver for devs tired of using JavaScript for "localStorage()".
+store(key, value): Persistently store a value under a key (JSON file).
+
+recall(key): Retrieve a stored value.
+
+input("prompt"): Show prompt and wait for user input, stored in variable _input.
+
+Persistent Storage with store and recall
+Store key-value pairs persistently in a JSON file:
+__________________________________________________________________________________
+store("username", "Adam")
+text(recall("username"))  # Prints "Adam"
+Use this to save and retrieve data across sessions.
+
+Input and Interaction
+Prompt user for input:
+__________________________________________________________________
+input("Enter your name: ")
+text("Hello, " + _input)
+User input is saved in the special variable _input.
+
+Advanced Expression Evaluation
+Supports math functions safely:
+
+abs(x), round(x), pow(x,y), sqrt(x)
+
+Trigonometry: sin(x), cos(x), tan(x)
+
+Logs: log(x), log10(x)
+
+Rounding: floor(x), ceil(x)
+
+Constants: pi, e
+
+Random: randomDecimal(a, b) (float between a and b), randomInt(a, b) (integer between a and b)
+
+Expression solving and simplifying (experimental)
+
+Use expressions in assignments:
+_____________________________________________________________________________
+x = randomInt(1, 10)
+angle = pi / 4
+height = round(sin(angle) * 10)
+_____________________________________________________________________________
+Writing and Running AL Code
+You can write multi-line AL code, ending blocks with consistent indentation:
+
+______________________________________________________________________________
+repeat 3:
+    text("Hello")
+    text("World")
+
+if x > 5:
+    text("x is big")
+
+group mygroup:
+    text("Inside group")
+_________________________
+Running the Interpreter
+Start the interpreter script.
+
+Enter your code line by line.
+
+Finish multi-line input with the line: END
+
+To exit, type: QUIT
+Example session:
+____________________________
+>> text("Hello, AetherLang!")
+>> repeat 2:
+>>     text("Looping...")
+>> END
+
+--- Executing ---
+Hello, AetherLang!
+Looping...
+Looping...
+--- Done ---
+
+>> QUIT
+Goodbye!
+___________________________________________________________________________________________________________________________________________________________________________________________________________
+Version History and Credits
+v1.0: Initial interpreter with basic math, variables, store/recall, and input().
+
+v1.1: REPL improvement, math features added like randomDecimal() and solve().
+
+v1.2: JSON added, recall(), store(), among others added.
+
+v1.3 - v2.0: Unuploaded updates, huge revamp and makeover, and tons of debugs, especially with the time features.
+
+v2.0 (Current): Full integration of all prior features, stable multi-line interactive REPL, persistent JSON storage, safe math functions, improved condition evaluation, and traditional classic sunny intro.
+______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Thank you for using AetherLang! This project is evolving, and your feedback and contributions are welcome on GitHub.
